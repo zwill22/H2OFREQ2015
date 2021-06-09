@@ -1,0 +1,17 @@
+#
+# 01_H2O tpssh/aug-cc-pvt(+d)z
+#
+! tpssh d3bj aug-cc-pvt(+d)z def2/jk grid4 nofinalgrid opt xyzfile numfreq
+
+*xyz 0 1
+O	0	0	0.12434822
+H	0	-1.43139324	-0.98674827
+H	0	1.43139324	-0.98674827
+*
+
+%maxcore 5000
+
+%pal
+nprocs 24
+end
+

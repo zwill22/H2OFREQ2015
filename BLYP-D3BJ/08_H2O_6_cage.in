@@ -1,0 +1,63 @@
+opt := optimize(
+
+structure(
+! xyz from file  /Users/zackwilliams/OneDrive - University of Bristol/geometries/H2OFREQ2015/08_H2O_6_cage.xyz
+xyz = [
+[O, 0.862065, -1.728538, -0.448765],
+[H, 1.679686, -1.216793, -0.290371],
+[H, 1.141594, -2.607406, -0.70991],
+[O, -0.751083, 0.359939, -1.648316],
+[H, -0.283702, -0.473988, -1.502279],
+[H, -1.624922, 0.21572, -1.247934],
+[O, 0.590537, 1.75631, 0.198185],
+[H, 0.069166, 1.374794, -0.548651],
+[H, 0.493944, 2.707937, 0.134574],
+[O, -0.675492, -0.446436, 1.665684],
+[H, -0.188802, -1.063799, 1.102054],
+[H, -0.260662, 0.405216, 1.474464],
+[O, 2.803582, 0.112403, 0.084677],
+[H, 2.165098, 0.844551, 0.158067],
+[H, 3.282044, 0.106258, 0.915526],
+[O, -2.901034, 0.010949, 0.089937],
+[H, -2.258917, -0.224605, 0.785219],
+[H, -3.643112, -0.584893, 0.198028]
+]
+)
+
+dft(
+xc = BLYP
+d3bj(
+functional = BLYP
+)
+
+! Basis sets
+ao = 'aug-cc-pVTZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+
+)
+
+xyz_output = '08_H2O_6_cage.xyz'
+)
+
+hessian(
+
+structure(
+load = opt
+)
+
+dft(
+xc = BLYP
+d3bj(
+functional = BLYP
+)
+
+! Basis sets
+ao = 'aug-cc-pVTZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+
+)
+method = semianalytic
+)
+

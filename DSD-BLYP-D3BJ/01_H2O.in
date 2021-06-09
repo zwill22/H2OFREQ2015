@@ -1,0 +1,17 @@
+#
+# 01_H2O dsd-blyp/aug-cc-pvt(+d)z
+#
+! rijk ri-dsd-blyp/2013 d3bj aug-cc-pvt(+d)z def2/jk def2-tzvp/c grid4 nofinalgrid opt xyzfile numfreq
+
+*xyz 0 1
+O	0	0	0.12434822
+H	0	-1.43139324	-0.98674827
+H	0	1.43139324	-0.98674827
+*
+
+%maxcore 5000
+
+%pal
+nprocs 24
+end
+

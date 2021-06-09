@@ -1,0 +1,20 @@
+#
+# 02_H2O_2 b2-plyp/aug-cc-pvt(+d)z
+#
+! rijk ri-b2plyp d3bj aug-cc-pvt(+d)z def2/jk def2-tzvp/c grid4 nofinalgrid opt xyzfile numfreq
+
+*xyz 0 1
+O	0.12629641	2.81863838	0
+H	-1.55012056	3.50228598	0
+H	-0.11213325	1.01044862	0
+O	-0.11743248	-2.68035303	0
+H	0.7607884	-3.35371171	-1.4365769
+H	0.7607884	-3.35371171	1.4365769
+*
+
+%maxcore 5000
+
+%pal
+nprocs 24
+end
+

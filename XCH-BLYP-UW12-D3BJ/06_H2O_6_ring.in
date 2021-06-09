@@ -1,0 +1,89 @@
+opt := optimize(
+
+structure(
+! xyz from file  /Users/zackwilliams/OneDrive - University of Bristol/geometries/H2OFREQ2015/06_H2O_6_ring.xyz
+xyz = [
+[O, 0, 2.709181, 0.148099],
+[H, -0.122498, 3.233153, 0.940879],
+[H, -0.836919, 2.216592, 0.034772],
+[O, -2.346219, -1.35459, 0.148099],
+[H, -1.501165, -1.833089, 0.034772],
+[H, -2.738743, -1.722662, 0.940879],
+[O, 2.34622, 1.354591, -0.148098],
+[H, 2.738743, 1.722663, -0.940878],
+[H, 1.501165, 1.83309, -0.034772],
+[O, 0, -2.709181, -0.148098],
+[H, 0.83692, -2.216591, -0.034772],
+[H, 0.122498, -3.233152, -0.940878],
+[O, 2.34622, -1.35459, 0.148099],
+[H, 2.861241, -1.510489, 0.940879],
+[H, 2.338085, -0.383502, 0.034772],
+[O, -2.346219, 1.354591, -0.148098],
+[H, -2.861241, 1.51049, -0.940878],
+[H, -2.338084, 0.383502, -0.034772]
+]
+)
+
+dft(
+
+! Functional setup
+xc_mix = [[0.5, B88], [0.75, LYP]]
+exchange_factor = 0.5
+
+
+uw12(
+coefficients = [0.000835, -0.085419, -0.260012, -0.216533, -0.135269, -0.070814, -0.039562, -0.021128, -0.007673, -0.011382]
+exponents = [0.01, 0.035938, 0.129155, 0.464159, 1.668101, 5.994843, 21.544347, 77.426368, 278.25594, 1000.0]
+scale_opp_spin = 0.25
+scale_same_spin = 0.5
+schwarz_threshold = 1e-12
+ri = 'Def2-TZVP-RI'
+)
+d3bj(
+functional = B2PLYP
+)
+
+! Basis sets
+ao = 'aug-cc-pVTZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+
+)
+
+xyz_output = '06_H2O_6_ring.xyz'
+)
+
+hessian(
+
+structure(
+load = opt
+)
+
+dft(
+
+! Functional setup
+xc_mix = [[0.5, B88], [0.75, LYP]]
+exchange_factor = 0.5
+
+
+uw12(
+coefficients = [0.000835, -0.085419, -0.260012, -0.216533, -0.135269, -0.070814, -0.039562, -0.021128, -0.007673, -0.011382]
+exponents = [0.01, 0.035938, 0.129155, 0.464159, 1.668101, 5.994843, 21.544347, 77.426368, 278.25594, 1000.0]
+scale_opp_spin = 0.25
+scale_same_spin = 0.5
+schwarz_threshold = 1e-12
+ri = 'Def2-TZVP-RI'
+)
+d3bj(
+functional = B2PLYP
+)
+
+! Basis sets
+ao = 'aug-cc-pVTZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+
+)
+method = semianalytic
+)
+

@@ -1,0 +1,48 @@
+opt := optimize(
+
+structure(
+! xyz from file  /Users/zackwilliams/OneDrive - University of Bristol/geometries/H2OFREQ2015/03_H2O_3.xyz
+xyz = [
+[O, -1.476811, -0.647642, -0.082126],
+[H, -0.613415, -1.087457, -0.037065],
+[H, -2.026236, -1.086841, 0.568502],
+[O, 1.305672, -0.945117, -0.091536],
+[H, 1.973931, -1.196903, 0.547209],
+[H, 1.22684, 0.019839, -0.021857],
+[O, 0.169678, 1.599733, 0.108456],
+[H, -0.629586, 1.051269, 0.060063],
+[H, 0.080159, 2.244313, -0.595195]
+]
+)
+
+dft(
+xc = wB97XD3
+
+! Basis sets
+ao = 'aug-cc-pVTZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+
+)
+
+xyz_output = '03_H2O_3.xyz'
+)
+
+hessian(
+
+structure(
+load = opt
+)
+
+dft(
+xc = wB97XD3
+
+! Basis sets
+ao = 'aug-cc-pVTZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+
+)
+method = semianalytic
+)
+
