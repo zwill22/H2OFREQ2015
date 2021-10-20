@@ -1,7 +1,8 @@
 #
 # 02_H2O_2 scanfunc/aug-cc-pvt(+d)z
 #
-! scanfunc d3bj aug-cc-pvt(+d)z def2/j grid4 nofinalgrid opt xyzfile numfreq
+! tpss d3bj aug-cc-pvt(+d)z def2/j grid4 nofinalgrid opt xyzfile numfreq
+%base "tpss"
 
 *xyz 0 1
 O	0.12629641	2.81863838	0
@@ -17,4 +18,18 @@ H	0.7607884	-3.35371171	1.4365769
 %pal
 nprocs 24
 end
+
+$new_job
+! scanfunc d3bj aug-cc-pvt(+d)z def2/j grid4 nofinalgrid opt xyzfile numfreq moread
+%base "normal"
+%moinp "tpss.gbw"
+
+*xyzfile 0 1
+
+%maxcore 5000
+
+%pal
+nprocs 24
+end
+
 

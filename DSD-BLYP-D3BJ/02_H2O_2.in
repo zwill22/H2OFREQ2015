@@ -18,3 +18,8 @@ H	0.7607884	-3.35371171	1.4365769
 nprocs 24
 end
 
+%geom
+maxiter 300
+coordsys cartesian
+end
+
