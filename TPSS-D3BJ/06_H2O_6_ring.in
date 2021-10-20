@@ -30,3 +30,9 @@ H	-2.338084	0.383502	-0.034772
 nprocs 24
 end
 
+%geom
+Calc_Hess true # Request an exact Hessian in the first optimization step
+NumHess true #  Request the numerical exact Hessian (only one available for this method).
+Recalc_Hess 10 # Recalculate the exact Hessian every 10 steps.
+end
+
