@@ -1,0 +1,27 @@
+#!/bin/bash -l
+#PBS -N "09_H2O_6_prism"
+#PBS -j oe
+#PBS -l walltime=12:00:00
+#PBS -l select=1:ncpus=24:mem=144gb:mpiprocs=24
+
+
+cd /home/zw18965/work/H2OFREQ2015/TPSSh-D3BJ
+
+module load lib/openmpi
+module load apps/orca
+export orcadir="/sw/apps/orca/orca_4_2_0_linux_x86-64_openmpi314"
+export RSH_COMMAND="/usr/bin/ssh -x"
+
+
+#Setup scratch directory
+cp "09_H2O_6_prism.in" ${TMPDIR}
+cp "09_H2O_6_prism.xyz" ${TMPDIR}
+
+# Run orca
+cd ${TMPDIR}
+export MKL_THREADING_LAYER=TBB
+
+${orcadir}/orca "09_H2O_6_prism.in" &> "09_H2O_6_prism.out"
+
+cp * /home/zw18965/work/H2OFREQ2015/TPSSh-D3BJ
+cd /home/zw18965/work/H2OFREQ2015/TPSSh-D3BJ

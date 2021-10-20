@@ -1,4 +1,4 @@
-opt := optimize(
+opt1 := optimize(
 
 structure(
 ! xyz from file  /Users/zackwilliams/OneDrive - University of Bristol/geometries/H2OFREQ2015/02_H2O_2.xyz
@@ -22,9 +22,52 @@ functional = BLYP
 ao = 'aug-cc-pVTZ-merged'
 df = 'Def2-TZVP-JKFIT'
 
+)
 
 )
 
+hess := hessian(
+
+structure(
+load = opt1
+)
+
+dft(
+xc = BLYP
+d3bj(
+functional = BLYP
+)
+
+! Basis sets
+ao = 'aug-cc-pVTZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+)
+
+method = 'semianalytic'
+)
+
+opt := optimize(
+load = hess
+
+structure(
+load = hess
+)
+
+dft(
+xc = BLYP
+d3bj(
+functional = BLYP
+)
+
+! Basis sets
+ao = 'aug-cc-pVTZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+
+)
+
+coordinates = xyz
 xyz_output = '02_H2O_2.xyz'
 )
 

@@ -1,4 +1,4 @@
-opt := optimize(
+opt1 := optimize(
 
 structure(
 ! xyz from file  /Users/zackwilliams/OneDrive - University of Bristol/geometries/H2OFREQ2015/02_H2O_2.xyz
@@ -10,6 +10,46 @@ xyz = [
 [H, 0.7607884, -3.35371171, -1.4365769],
 [H, 0.7607884, -3.35371171, 1.4365769]
 ]
+)
+
+dft(
+xc = PBE
+d3bj(
+functional = PBE
+)
+
+! Basis sets
+ao = 'aug-cc-pVDZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+
+)
+)
+
+opt2 := optimize(
+
+structure(
+load = opt1
+)
+
+dft(
+xc = PBE0
+d3bj(
+functional = PBE0
+)
+
+! Basis sets
+ao = 'aug-cc-pVDZ-merged'
+df = 'Def2-TZVP-JKFIT'
+
+
+)
+)
+
+opt := optimize(
+
+structure(
+load = opt2
 )
 
 dft(

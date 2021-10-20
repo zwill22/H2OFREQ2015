@@ -1,0 +1,27 @@
+#!/bin/bash -l
+#PBS -N "03_H2O_3"
+#PBS -j oe
+#PBS -l walltime=12:00:00
+#PBS -l select=1:ncpus=24:mem=144gb:mpiprocs=24
+
+
+cd /home/zw18965/work/H2OFREQ2015/TPSS-D3BJ
+
+module load lib/openmpi
+module load apps/orca
+export orcadir="/sw/apps/orca/orca_4_2_0_linux_x86-64_openmpi314"
+export RSH_COMMAND="/usr/bin/ssh -x"
+
+
+#Setup scratch directory
+cp "03_H2O_3.in" ${TMPDIR}
+cp "03_H2O_3.xyz" ${TMPDIR}
+
+# Run orca
+cd ${TMPDIR}
+export MKL_THREADING_LAYER=TBB
+
+${orcadir}/orca "03_H2O_3.in" &> "03_H2O_3.out"
+
+cp * /home/zw18965/work/H2OFREQ2015/TPSS-D3BJ
+cd /home/zw18965/work/H2OFREQ2015/TPSS-D3BJ
